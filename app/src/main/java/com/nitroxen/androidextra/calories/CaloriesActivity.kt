@@ -40,7 +40,7 @@ class CaloriesActivity : AppCompatActivity() {
 
     private fun getListeners() {
         rsHeight.addOnChangeListener { _, value, _ ->
-            var result = setFormatedInt(value)
+            val result = setFormatedInt(value)
             tvHeight.setText("$result cm")
         }
     }
