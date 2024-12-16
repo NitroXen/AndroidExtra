@@ -3,4 +3,6 @@
     <string name="gender">Genero</string>
     <string name="man">Masculino</string>
     <string name="woman">Femenino</string>
+    <string name="height">Altura</string>
+    <string name="bmi_calories">IMC + Calorias</string>
 </resources>
