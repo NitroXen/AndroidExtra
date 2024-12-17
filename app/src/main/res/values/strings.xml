@@ -5,4 +5,8 @@
     <string name="woman">Femenino</string>
     <string name="height">Altura</string>
     <string name="bmi_calories">IMC + Calorias</string>
+    <string name="weight">Peso</string>
+    <string name="age">Edad</string>
+    <string name="remove">remove</string>
+    <string name="add">add</string>
 </resources>
