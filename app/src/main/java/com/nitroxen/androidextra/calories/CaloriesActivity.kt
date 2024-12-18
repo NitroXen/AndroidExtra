@@ -1,22 +1,21 @@
 package com.nitroxen.androidextra.calories
 
-import java.text.DecimalFormat
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
-import com.google.android.material.slider.Slider
 import com.nitroxen.androidextra.R
+import java.text.DecimalFormat
+import kotlin.math.pow
 
 class CaloriesActivity : AppCompatActivity() {
 
     private var weight: Int = 50
     private var age: Int = 25
-    private var height : Int = 155
+    private var height: Int = 155
 
     private lateinit var sGender: SwitchCompat
     private lateinit var rsHeight: RangeSlider
@@ -55,22 +54,30 @@ class CaloriesActivity : AppCompatActivity() {
     }
 
     private fun getListeners() {
+        sGender.setOnClickListener {
+
+        }
         rsHeight.addOnChangeListener { _, value, _ ->
             height = setFormatedInt(value).toInt()
             tvHeight.setText("$height cm")
+
         }
 
         fabSubstractAge.setOnClickListener {
             modAge(false)
+
         }
         fabSubstractWeight.setOnClickListener {
             modWeight(false)
+
         }
         fabAddWeight.setOnClickListener {
             modWeight(true)
+
         }
         fabAddAge.setOnClickListener {
             modAge(true)
+
         }
     }
 
@@ -79,6 +86,7 @@ class CaloriesActivity : AppCompatActivity() {
         tvWeight.text = weight.toString()
         tvAge.text = age.toString()
         tvHeight.text = height.toString()
+
 
     }
 
@@ -104,25 +112,27 @@ class CaloriesActivity : AppCompatActivity() {
 
     }
 
+
+    // uso para formato y calculo
     private fun setFormatedInt(valor: Float): String {
         val df = DecimalFormat("#.##")
         return df.format(valor)
     }
 
-    private fun setFormatedDouble(valor: String): Double {
-        val df = DecimalFormat("#.##")
+    private fun setFormatedDouble(valor: Double): Double {
+        val df = DecimalFormat("##.00")
         return df.format(valor).toDouble()
     }
 
-    private fun calulateCalories():Double{
-        if(sGender.isActivated){
-           return (65+(9.6*weight)+(1.8*height)-(4.7*age))
+    private fun calulateCalories(): Double {
+        if (sGender.isActivated) {
+            return (65 + (9.6 * weight) + (1.8 * height) - (4.7 * age))
         }
-        return 66+(13.7*weight)+(5*height)-(6.8*age)
+        return 66 + (13.7 * weight) + (5 * height) - (6.8 * age)
     }
 
-    private fun calculateBMI():Int{
-        return weight/((height/100)*(height/100))
+    private fun calculateBMI(): Double {
+        return weight / (height.toDouble() / 100).pow(2)
     }
 
 }

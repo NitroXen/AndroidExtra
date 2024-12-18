@@ -9,4 +9,6 @@
     <string name="age">Edad</string>
     <string name="remove">remove</string>
     <string name="add">add</string>
+    <string name="bmi">IMC</string>
+    <string name="calories_consume">Calorias para consumir</string>
 </resources>
