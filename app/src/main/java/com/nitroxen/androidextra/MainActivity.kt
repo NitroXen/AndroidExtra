@@ -11,7 +11,7 @@ import com.nitroxen.androidextra.calories.CaloriesActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var btnCalories:Button
+    private lateinit var btnCalories: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +32,9 @@ class MainActivity : AppCompatActivity() {
         btnCalories = findViewById(R.id.btnCalories)
     }
 
-    private fun getListeners(){
+    private fun getListeners() {
         btnCalories.setOnClickListener {
-            val intent = Intent(this,CaloriesActivity::class.java)
+            val intent = Intent(this, CaloriesActivity::class.java)
             startActivity(intent)
         }
     }

@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="background_component">#007e00</color>
+    <color name="background_app">#47f598</color>
+    <color name="background_cardview">#87edad</color>
+    <color name="background_button">#f04893</color>
+    <color name="background_second_button">#ad2661</color>
+    <color name="background_main_app">#49a2f5</color>
+    <color name="background_todo_list">#1e1a63</color>
+
+
+
+
 </resources>

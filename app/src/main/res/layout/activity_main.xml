@@ -5,17 +5,26 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:paddingHorizontal="24dp"
     android:paddingVertical="45dp"
-    android:paddingHorizontal="24dp">
+    tools:context=".MainActivity">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCalories"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:text="@string/bmi_calories"
+        app:layout_constraintEnd_toStartOf="@id/btnTodoList"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTodoList"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:text="@string/todo_list"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/bmi_calories"/>
+        app:layout_constraintStart_toEndOf="@id/btnCalories"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
