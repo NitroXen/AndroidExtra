@@ -1,11 +1,13 @@
 package com.nitroxen.androidextra.calories
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Switch
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -17,12 +19,18 @@ import kotlin.math.pow
 
 class CaloriesActivity : AppCompatActivity() {
 
+
+    companion object{
+        val bmi = "VALUE_BMI"
+        val cal = "VALUE_CALORIES"
+    }
+
     private var weight: Int = 50
     private var age: Int = 25
     private var height: Int = 155
-    private var gender:Boolean = false
+    private var gender: Boolean = false
 
-    private lateinit var sGender: Switch
+    private lateinit var sGender: SwitchCompat
     private lateinit var rsHeight: RangeSlider
     private lateinit var tvHeight: TextView
     private lateinit var tvWeight: TextView
@@ -31,6 +39,7 @@ class CaloriesActivity : AppCompatActivity() {
     private lateinit var fabSubstractAge: FloatingActionButton
     private lateinit var fabAddWeight: FloatingActionButton
     private lateinit var fabAddAge: FloatingActionButton
+    private lateinit var btnCalculate: AppCompatButton
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,12 +52,10 @@ class CaloriesActivity : AppCompatActivity() {
             insets
         }
 
-
+        // inicializar elementos
         getInitialization()
         getListeners()
         getUI()
-
-
     }
 
 
@@ -62,7 +69,7 @@ class CaloriesActivity : AppCompatActivity() {
         fabSubstractAge = findViewById(R.id.fabSubstractAge)
         fabAddWeight = findViewById(R.id.fabAddWeight)
         fabAddAge = findViewById(R.id.fabAddAge)
-
+        btnCalculate = findViewById(R.id.btnCalculate)
     }
 
     private fun getListeners() {
@@ -70,24 +77,25 @@ class CaloriesActivity : AppCompatActivity() {
         rsHeight.addOnChangeListener { _, value, _ ->
             height = setFormatedInt(value).toInt()
             tvHeight.setText("$height cm")
-
         }
-
         fabSubstractAge.setOnClickListener {
             modAge(false)
-
         }
         fabSubstractWeight.setOnClickListener {
             modWeight(false)
-
         }
         fabAddWeight.setOnClickListener {
             modWeight(true)
-
         }
         fabAddAge.setOnClickListener {
             modAge(true)
+        }
+        btnCalculate.setOnClickListener {
+            val intent = Intent(this, ResultCaloriesActivity::class.java)
+            intent.putExtra(bmi, setFormatedDouble(calculateBMI()))
+            intent.putExtra(cal, calulateCalories())
 
+            startActivity(intent)
         }
     }
 
@@ -95,31 +103,27 @@ class CaloriesActivity : AppCompatActivity() {
         tvHeight.text = "150 cm"
         tvWeight.text = weight.toString()
         tvAge.text = age.toString()
-        tvHeight.text = height.toString()
-
-
     }
 
     private fun modWeight(add: Boolean) {
         if (add) {
             ++weight
-            tvWeight.text = weight.toString()
+            tvWeight.text = "$weight"
             return
         }
         --weight
-        tvWeight.text = weight.toString()
+        tvWeight.text = "$weight"
 
     }
 
     private fun modAge(add: Boolean) {
         if (add) {
             ++age
-            tvAge.text = age.toString()
-            Log.i("booleanRub", gender.toString())
+            tvAge.text = "$age"
             return
         }
         --age
-        tvAge.text = age.toString()
+        tvAge.text = "$age"
 
     }
 
@@ -135,11 +139,11 @@ class CaloriesActivity : AppCompatActivity() {
         return df.format(valor).toDouble()
     }
 
-    private fun calulateCalories(): Double {
+    private fun calulateCalories(): Int {
         if (gender) {
-            return (65 + (9.6 * weight) + (1.8 * height) - (4.7 * age))
+            return (65 + (9.6 * weight) + (1.8 * height) - (4.7 * age)).toInt()
         }
-        return 66 + (13.7 * weight) + (5 * height) - (6.8 * age)
+        return (66 + (13.7 * weight) + (5 * height) - (6.8 * age)).toInt()
     }
 
     private fun calculateBMI(): Double {

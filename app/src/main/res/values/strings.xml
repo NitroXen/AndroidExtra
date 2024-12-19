@@ -11,4 +11,7 @@
     <string name="add">add</string>
     <string name="bmi">IMC</string>
     <string name="calories_consume">Calorias para consumir</string>
+    <string name="calories_dairy">Calorias Diarias</string>
+    <string name="re_calculate">Re-Calcular</string>
+    <string name="calculate">Calcular</string>
 </resources>
