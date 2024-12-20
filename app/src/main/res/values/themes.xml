@@ -16,11 +16,11 @@
     <style name="Theme.TodoListTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/background_todo_list</item>
-        <item name="colorPrimaryVariant">@color/background_todo_list</item>
+        <item name="colorPrimaryVariant">@color/color_variant_list</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/background_main_app</item>
-        <item name="colorSecondaryVariant">@color/background_main_app</item>
+        <item name="colorSecondary">@color/background_component</item>
+        <item name="colorSecondaryVariant">@color/background_cardview</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
