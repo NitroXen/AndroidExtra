@@ -20,41 +20,57 @@
         android:textSize="35sp"
         android:textStyle="bold" />
 
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:text="@string/progress"-->
-<!--        android:textSize="20sp"-->
-<!--        android:layout_marginHorizontal="32sp"-->
-<!--        android:layout_marginVertical="10dp"-->
-<!--        />-->
+    <!--    <TextView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginHorizontal="32sp"-->
+    <!--        android:layout_marginVertical="10dp"-->
+    <!--        android:text="@string/progress"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:textSize="20sp" />-->
 
-<!--    <com.google.android.material.progressindicator.LinearProgressIndicator-->
-<!--        android:id="@+id/lpiTasks"-->
-<!--        android:layout_width="330dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginHorizontal="32dp"-->
-<!--        android:layout_gravity="start"-->
-<!--        app:indicatorColor="@color/background_button"-->
-<!--        app:trackColor="@color/white" />-->
+    <!--    <ProgressBar-->
+    <!--        android:id="@+id/pbTasks"-->
+    <!--        style="?android:attr/progressBarStyleHorizontal"-->
+    <!--        android:layout_width="340dp"-->
+    <!--        android:layout_height="10dp"-->
+    <!--        android:layout_gravity="center_horizontal"-->
+    <!--        android:progressBackgroundTint="@color/color_variant_two_red"-->
+    <!--        android:progressTint="@color/background_button"-->
+    <!--        tools:progress="20" />-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/categories"
-        android:textSize="20sp"
         android:layout_marginHorizontal="32sp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
-        />
+        android:text="@string/categories"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"/>
+        android:orientation="horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/tasks"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTasks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp" />
 
 
 </LinearLayout>

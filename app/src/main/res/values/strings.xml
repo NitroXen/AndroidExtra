@@ -16,6 +16,7 @@
     <string name="calculate">Calcular</string>
     <string name="todo_list">TODO List</string>
     <string name="todo_salute">Bienvenido, Rubén</string>
-    <string name="progress">Progreso</string>
-    <string name="categories">Categorias</string>
+    <string name="progress">Progreso:</string>
+    <string name="categories">Categorias:</string>
+    <string name="tasks">Tareas:</string>
 </resources>
