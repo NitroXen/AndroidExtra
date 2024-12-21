@@ -19,4 +19,10 @@
     <string name="progress">Progreso:</string>
     <string name="categories">Categorias:</string>
     <string name="tasks">Tareas:</string>
+    <string name="add_todo">Add Todo</string>
+    <string name="task_name">Nombre de la tarea</string>
+    <string name="business">Negocios</string>
+    <string name="personal">Personal</string>
+    <string name="other">Otros</string>
+    <string name="todo_add_task">Añadir Tarea</string>
 </resources>
