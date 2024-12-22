@@ -23,7 +23,7 @@ class TodoActivity : AppCompatActivity() {
         TaskCategory.Other
     )
 
-    private val tasks = mutableListOf<Task>(
+    private val tasks = mutableListOf(
         Task("TestBusiness", TaskCategory.Business),
         Task("TestPersonal", TaskCategory.Personal),
         Task("TestOther", TaskCategory.Other)
@@ -65,12 +65,12 @@ class TodoActivity : AppCompatActivity() {
 
 
     private fun initUI() {
-        categoryAdapter = CategoryAdapter(categories)
+        categoryAdapter = CategoryAdapter(categories){updateCategories(it)}
         rvCategories.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCategories.adapter = categoryAdapter
 
-        tasksAdapter = TasksAdapter(tasks)
+        tasksAdapter = TasksAdapter(tasks, {onItemSelection(it)})
         rvTasks.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rvTasks.adapter = tasksAdapter
     }
@@ -103,7 +103,23 @@ class TodoActivity : AppCompatActivity() {
         dialog.show()
     }
 
+
+    private fun onItemSelection(position:Int){
+        tasks[position].isSelected  =!tasks[position].isSelected
+        updateTask()
+    }
+
+    private fun updateCategories(pos:Int){
+        categories[pos].isSelected = !categories[pos].isSelected
+        categoryAdapter.notifyItemChanged(pos)
+        updateTask()
+    }
+
+
     private fun updateTask() {
+        val selectedCategories: List<TaskCategory> = categories.filter { it.isSelected }
+        val newTasks = tasks.filter { selectedCategories.contains(it.category) }
+        tasksAdapter.tasks = newTasks
         tasksAdapter.notifyDataSetChanged()
     }
 }
