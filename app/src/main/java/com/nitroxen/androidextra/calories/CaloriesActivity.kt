@@ -2,15 +2,11 @@ package com.nitroxen.androidextra.calories
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.SwitchCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
 import com.nitroxen.androidextra.R
@@ -46,12 +42,11 @@ class CaloriesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_calories)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+//            insets
+//        }
         // inicializar elementos
         getInitialization()
         getListeners()
@@ -76,7 +71,7 @@ class CaloriesActivity : AppCompatActivity() {
         sGender.setOnClickListener { gender = !gender }
         rsHeight.addOnChangeListener { _, value, _ ->
             height = setFormatedInt(value).toInt()
-            tvHeight.setText("$height cm")
+            tvHeight.text = getString(R.string.height_total,height)
         }
         fabSubstractAge.setOnClickListener {
             modAge(false)
@@ -100,9 +95,9 @@ class CaloriesActivity : AppCompatActivity() {
     }
 
     private fun getUI() {
-        tvHeight.text = "150 cm"
-        tvWeight.text = weight.toString()
-        tvAge.text = age.toString()
+        tvHeight.text = getString(R.string.height_base)
+        tvWeight.text = String.format(weight.toString())
+        tvAge.text = String.format(age.toString())
     }
 
     private fun modWeight(add: Boolean) {

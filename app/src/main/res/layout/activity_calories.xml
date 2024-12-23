@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_app"
-    android:paddingHorizontal="32dp"
-    android:paddingVertical="40dp"
+    android:padding="35dp"
     tools:context=".calories.CaloriesActivity">
 
 
@@ -118,7 +117,7 @@
         android:layout_width="160dp"
         android:layout_height="130dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="8dp"
         app:cardBackgroundColor="@color/background_component"
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toStartOf="@id/cvAge"

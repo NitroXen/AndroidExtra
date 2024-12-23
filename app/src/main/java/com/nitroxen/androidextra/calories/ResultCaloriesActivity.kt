@@ -1,6 +1,5 @@
 package com.nitroxen.androidextra.calories
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -47,17 +46,29 @@ class ResultCaloriesActivity : AppCompatActivity() {
     }
 
     private fun getUI(bmi:Double, calories:Int){
-        tvBMI.text = getBMI(bmi)
+        getBMI(bmi)
         tvCalories.text ="$calories"
     }
 
 
-    private fun getBMI(bmi:Double):String=when(bmi){
-        in 0.00 .. 18.49 -> "Peso inferior $bmi"
-        in 18.50 .. 24.99 -> "Peso normal $bmi"
-        in 25.00 .. 29.99 -> "Sobrepeso $bmi"
-        in 30.00 .. 100.00 -> "Obesidad $bmi"
-        else -> "ERROR"
+    private fun getBMI(bmi:Double)=when(bmi){
+        in 0.00 .. 18.49 -> {
+            tvBMI.text = getString(R.string.low_bmi)
+            tvBMI.setTextColor(getColor(R.color.peso_bajo))
+        }
+        in 18.50 .. 24.99 -> {
+            tvBMI.text = getString(R.string.normal_bmi)
+            tvBMI.setTextColor(getColor(R.color.peso_normal))
+        }
+        in 25.00 .. 29.99 -> {
+            tvBMI.text = getString(R.string.over_bmi)
+            tvBMI.setTextColor(getColor(R.color.peso_sobrepeso))
+        }
+        in 30.00 .. 100.00 -> {
+            tvBMI.text = getString(R.string.obesity_bmi)
+            tvBMI.setTextColor(getColor(R.color.obesidad))
+        }
+        else -> tvBMI.text=getString(R.string.error)
     }
 
 
