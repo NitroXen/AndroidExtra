@@ -23,11 +23,11 @@ class CaloriesActivity : AppCompatActivity() {
     }
 
     private val listActivities = listOf(
-        Activity("Sedentario","ocasionalmente",1.2),
-        Activity("Low","1 o 3 veces por semana",1.375),
-        Activity("Moderate","3 o 5 veces por semana",1.55),
-        Activity("High","6 o 7 veces por semana",1.725),
-        Activity("Intense","+4 horas diarias",1.9),
+        Activity(getString(R.string.item1_1),getString(R.string.item1_2),1.2),
+        Activity(getString(R.string.item2_1),getString(R.string.item2_2),1.375),
+        Activity(getString(R.string.item3_1),getString(R.string.item3_2),1.55),
+        Activity(getString(R.string.item4_1),getString(R.string.item4_2),1.725),
+        Activity(getString(R.string.item5_1),getString(R.string.item5_2),1.9),
     )
 
     private var weight: Int = 50

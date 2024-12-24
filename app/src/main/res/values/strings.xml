@@ -20,6 +20,20 @@
     <string name="obesity_bmi">Obesidad</string>
     <string name="re_calculate">Re-Calcular</string>
     <string name="calculate">Calcular</string>
+
+    <string name="item1_1">Sedentario</string>
+    <string name="item1_2">ocasionalmente</string>
+    <string name="item2_1">Low</string>
+    <string name="item2_2">1 o 3 veces por semana</string>
+    <string name="item3_1">Moderate</string>
+    <string name="item3_2">3 o 5 veces por semana</string>
+    <string name="item4_1">High</string>
+    <string name="item4_2">6 o 7 veces por semana</string>
+    <string name="item5_1">Intense</string>
+    <string name="item5_2">+4 horas diarias</string>
+
+
+<!--todoList-->
     <string name="todo_list">TODO List</string>
     <string name="todo_salute">Bienvenido, Rubén</string>
     <string name="progress">Progreso:</string>
