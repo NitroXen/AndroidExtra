@@ -17,12 +17,10 @@ import kotlin.math.pow
 
 class CaloriesActivity : AppCompatActivity() {
 
-
     companion object{
         val bmi = "VALUE_BMI"
         val cal = "VALUE_CALORIES"
     }
-
 
     private val listActivities = listOf(
         Activity("Sedentario","ocasionalmente",1.2),
@@ -117,8 +115,6 @@ class CaloriesActivity : AppCompatActivity() {
         activityAdapter = ActivityAdapter(listActivities){onClicked(it)}
         rvAct.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         rvAct.adapter = activityAdapter
-
-
     }
 
     private fun modWeight(add: Boolean) {
