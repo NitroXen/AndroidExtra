@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_app"
-    android:padding="35dp"
+    android:paddingVertical="25dp"
     tools:context=".calories.CaloriesActivity">
 
 
@@ -233,6 +233,17 @@
 
     </androidx.cardview.widget.CardView>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/cvWeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnCalculate"
+        />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCalculate"
         android:layout_width="match_parent"
@@ -244,7 +255,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvWeight" />
+        app:layout_constraintTop_toBottomOf="@id/rvAct" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

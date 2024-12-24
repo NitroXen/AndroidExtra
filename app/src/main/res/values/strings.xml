@@ -12,6 +12,12 @@
     <string name="bmi">IMC</string>
     <string name="calories_consume">Calorias para consumir</string>
     <string name="calories_dairy">Calorias Diarias</string>
+    <string name="low_bmi">Peso Inferior</string>
+    <string name="normal_bmi">Peso Normal</string>
+    <string name="height_total">%1$d cm</string>
+    <string name="height_base">150 cm</string>
+    <string name="over_bmi">Sobrepeso</string>
+    <string name="obesity_bmi">Obesidad</string>
     <string name="re_calculate">Re-Calcular</string>
     <string name="calculate">Calcular</string>
     <string name="todo_list">TODO List</string>
@@ -25,4 +31,7 @@
     <string name="personal">Personal</string>
     <string name="other">Otros</string>
     <string name="todo_add_task">Añadir Tarea</string>
+
+
+    <string name="error">ERROR</string>
 </resources>
