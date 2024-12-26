@@ -21,6 +21,9 @@ class TasksViewHolder(view: View): RecyclerView.ViewHolder(view) {
         }else{
             tvTask.paintFlags = tvTask.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
         }
+        cbTask.setOnClickListener{
+            task.isSelected = !task.isSelected
+        }
 
         tvTask.text = task.text
         cbTask.isChecked = task.isSelected

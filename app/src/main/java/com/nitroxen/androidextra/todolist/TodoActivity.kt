@@ -2,8 +2,10 @@ package com.nitroxen.androidextra.todolist
 
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.activity.enableEdgeToEdge
@@ -17,11 +19,11 @@ import com.nitroxen.androidextra.R
 
 class TodoActivity : AppCompatActivity() {
 
-    private val categories = listOf(
-        TaskCategory.Business,
-        TaskCategory.Personal,
-        TaskCategory.Other
-    )
+//    private val categories = listOf(
+//        TaskCategory.Business,
+//        TaskCategory.Personal,
+//        TaskCategory.Other
+//    )
 
     private val tasks = mutableListOf(
         Task("TestBusiness", TaskCategory.Business),
@@ -29,11 +31,14 @@ class TodoActivity : AppCompatActivity() {
         Task("TestOther", TaskCategory.Other)
     )
 
-    private lateinit var rvCategories: RecyclerView
-    private lateinit var categoryAdapter: CategoryAdapter
+
+
+//    private lateinit var rvCategories: RecyclerView
+//    private lateinit var categoryAdapter: CategoryAdapter
     private lateinit var rvTasks: RecyclerView
     private lateinit var tasksAdapter: TasksAdapter
     private lateinit var fabAddTask: FloatingActionButton
+    private lateinit var pbTask: ProgressBar
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +57,8 @@ class TodoActivity : AppCompatActivity() {
     }
 
     private fun initalization() {
-        rvCategories = findViewById(R.id.rvCategories)
+        pbTask = findViewById(R.id.pbTask)
+//        rvCategories = findViewById(R.id.rvCategories)
         rvTasks = findViewById(R.id.rvTasks)
         fabAddTask = findViewById(R.id.fabAddTask)
     }
@@ -65,14 +71,15 @@ class TodoActivity : AppCompatActivity() {
 
 
     private fun initUI() {
-        categoryAdapter = CategoryAdapter(categories){updateCategories(it)}
-        rvCategories.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvCategories.adapter = categoryAdapter
+//        categoryAdapter = CategoryAdapter(categories){updateCategories(it)}
+//        rvCategories.layoutManager =
+//            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        rvCategories.adapter = categoryAdapter
 
         tasksAdapter = TasksAdapter(tasks, {onItemSelection(it)})
         rvTasks.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rvTasks.adapter = tasksAdapter
+
     }
 
     private fun showDialog() {
@@ -106,20 +113,30 @@ class TodoActivity : AppCompatActivity() {
 
     private fun onItemSelection(position:Int){
         tasks[position].isSelected  =!tasks[position].isSelected
+        updateProgress()
         updateTask()
     }
 
-    private fun updateCategories(pos:Int){
-        categories[pos].isSelected = !categories[pos].isSelected
-        categoryAdapter.notifyItemChanged(pos)
+//    private fun updateCategories(pos:Int){
+//        categories[pos].isSelected = !categories[pos].isSelected
+//        categoryAdapter.notifyItemChanged(pos)
+//        updateTask()
+//    }
+
+    private fun updateProgress(){
+        var num = 0.0
+        tasks.map { if(it.isSelected) ++num }
+
+        Log.i("num",((3.0/5.0)*100).toString())
+        pbTask.progress = ((num/tasks.size)*pbTask.max).toInt()
         updateTask()
     }
 
 
     private fun updateTask() {
-        val selectedCategories: List<TaskCategory> = categories.filter { it.isSelected }
-        val newTasks = tasks.filter { selectedCategories.contains(it.category) }
-        tasksAdapter.tasks = newTasks
+//        val selectedCategories: List<TaskCategory> = categories.filter { it.isSelected }
+//        val newTasks = tasks.filter { selectedCategories.contains(it.category) }
+//        tasksAdapter.tasks = newTasks
         tasksAdapter.notifyDataSetChanged()
     }
 }
